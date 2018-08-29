@@ -49,6 +49,11 @@ angular.module('weatherModule', ["openWeatherApiModule"])
         openWeatherApiFactory.getOsloWeather();
     }
 
+    $scope.refreshLondon = function(){
+        openWeatherApiFactory.getLondonWeather();
+    }
+
+
     $scope.init = function() {
         $scope.lastweather.oslo.weather = openWeatherApiFactory.lastWeather.Oslo;
         $scope.lastweather.london.weather = openWeatherApiFactory.lastWeather.London;

@@ -1,14 +1,20 @@
 <div ng-controller="weatherController">
-    <div class="col-xs-4 pt30">
-        <h1 class="weather-city">Oslo</h1>
-        <div ng-include="'../weather/oslo.html'"></div>
-    </div>
-    <div class="col-xs-4 pt30">
-        <h1 class="weather-city">London</h1>
-        <div ng-include="'../weather/london.html'"></div>
-    </div>
-    <div class="col-xs-4 pt30">
-        <h1 class="weather-city">Minsk</h1>
-        <div ng-include="'../weather/minsk.html'"></div>
+        <div class="col-xs-12 pt30">
+        <div class="col-xs-4"><h1 class="weather-city">Oslo</h1></div>
+        <div class="col-xs-4"><h1 class="weather-city">London</h1></div>
+        <div class="col-xs-4"><h1 class="weather-city">Minsk</h1></div>
+        </div>
+        <div class="flex-container col-xs-12 ">
+        <div class="flex-item col-xs-4 well mr20">
+            <div ng-include="'../weather/oslo.html'"></div>
+        </div>
+
+        <div class="flex-item col-xs-4 well mr20">
+
+            <div ng-include="'../weather/london.html'"></div>
+        </div>
+        <div class="flex-item col-xs-4 well mr20">
+            <div ng-include="'../weather/minsk.html'"></div>
+        </div>
     </div>
 </div>

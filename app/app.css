@@ -14,6 +14,16 @@ body {
     background-color: aliceblue;
 }
 
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-size: 36px;
+    max-width: 1600px;
+}
+
 .pt10 {
     padding-top: 10px;
 }

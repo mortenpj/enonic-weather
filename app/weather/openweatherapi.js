@@ -7,6 +7,7 @@ angular.module('openWeatherApiModule', [])
 
     var service = {
         baseUrl: "https://api.openweathermap.org/data/2.5/",
+        weathericonBaseUrl: "http://openweathermap.org/img/w/",
         appId: "8690db496c1d889b69c90a193971b6f6",
         cityId: {
             Oslo: 3143244,
@@ -60,13 +61,25 @@ angular.module('openWeatherApiModule', [])
 
     service.transformToWeatherObject = function(openWeatherapiObject){
         var weatherObject = {
+                weathericonurl: service.getWeatherIconUrl(openWeatherapiObject.weather),
                 temperature: service.kelvinTocelsius(openWeatherapiObject.main.temp),
-                pressure: openWeatherapiObject.main.preassure,
+                pressure: openWeatherapiObject.main.pressure,
                 humidity: openWeatherapiObject.main.humidity,
-                weatherDescription: service.getWeatherDescription(openWeatherapiObject.weather)
+                weatherDescription: service.getWeatherDescription(openWeatherapiObject.weather),
+                windspeed: openWeatherapiObject.wind.speed,
+                winddirection: openWeatherapiObject.wind.deg,
         };
 
         return weatherObject;
+    }
+
+    service.getWeatherIconUrl = function(weatherArray){
+
+        var url = service.weathericonBaseUrl;
+        if(weatherArray && weatherArray.length > 0){
+            url += weatherArray[0].icon + ".png";
+        }
+        return url;
     }
 
     service.kelvinTocelsius = function(kelvin){

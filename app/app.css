@@ -1,5 +1,6 @@
 body {
-    max-width: 1600px;;
+    max-width: 1600px;
+    padding-left: 25px;
 }
 
 .header {
@@ -8,7 +9,7 @@ body {
     color: #6d6e70
 }
 
-.header .well {
+.well {
     background-image: none;
     background-color: aliceblue;
 }
@@ -19,6 +20,10 @@ body {
 
 .pt15 {
     padding-top: 15px;
+}
+
+.pt30 {
+    padding-top: 30px;
 }
 
 .enonic-logo img {

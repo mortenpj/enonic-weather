@@ -1,0 +1,14 @@
+body {
+    width:
+}
+
+.header {
+    background-color: darkblue;
+    text-align: center;
+    color: white;
+    font-size: 65px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}

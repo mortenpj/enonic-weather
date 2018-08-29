@@ -15,9 +15,9 @@ angular.module('openWeatherApiModule', [])
             Minsk: 625144
         },
         lastWeather: {
-            Oslo: null,
-            London: null,
-            Minsk: null
+            Oslo: {weather: null, updated: null},
+            London: {weather: null, updated: null},
+            Minsk: {weather: null, updated: null}
         }
     };
 
@@ -27,7 +27,8 @@ angular.module('openWeatherApiModule', [])
           url: service.baseUrl + 'weather?id=' + service.cityId.Oslo + "&appid=" + service.appId
         })
         .then(function successCallback(response) {
-            service.lastWeather.Oslo = service.transformToWeatherObject(response.data);
+            service.lastWeather.Oslo.weather = service.transformToWeatherObject(response.data);
+            service.lastWeather.Oslo.updated = moment().format("HH:mm:ss");
             $rootScope.$broadcast("OSLO_WEATHER_UPDATED");
         }, function errorCallback(response) {
             $rootScope.$broadcast("OSLO_WEATHER_FAILED");
@@ -40,7 +41,8 @@ angular.module('openWeatherApiModule', [])
           url: service.baseUrl + 'weather?id=' + service.cityId.London + "&appid=" + service.appId
         })
         .then(function successCallback(response) {
-            service.lastWeather.London = service.transformToWeatherObject(response.data);
+            service.lastWeather.London.weather = service.transformToWeatherObject(response.data);
+            service.lastWeather.London.updated = moment().format("HH:mm:ss");
             $rootScope.$broadcast("LONDON_WEATHER_UPDATED");
         }, function errorCallback(response) {
             $rootScope.$broadcast("LONDON_WEATHER_FAILED");
@@ -52,7 +54,8 @@ angular.module('openWeatherApiModule', [])
           method: 'GET',
           url: service.baseUrl + 'weather?id=' + service.cityId.Minsk + "&appid=" + service.appId
         }).then(function successCallback(response) {
-            service.lastWeather.Minsk = service.transformToWeatherObject(response.data);
+            service.lastWeather.Minsk.weather = service.transformToWeatherObject(response.data);
+            service.lastWeather.Minsk.updated = moment().format("HH:mm:ss");
             $rootScope.$broadcast("MINSK_WEATHER_UPDATED");
           }, function errorCallback(response) {
             $rootScope.$broadcast("MINSK_WEATHER_FAILED");
@@ -62,7 +65,7 @@ angular.module('openWeatherApiModule', [])
     service.transformToWeatherObject = function(openWeatherapiObject){
         var weatherObject = {
                 weathericonurl: service.getWeatherIconUrl(openWeatherapiObject.weather),
-                temperature: service.kelvinTocelsius(openWeatherapiObject.main.temp),
+                temperature: service.getTemperature(openWeatherapiObject.main.temp),
                 pressure: openWeatherapiObject.main.pressure,
                 humidity: openWeatherapiObject.main.humidity,
                 weatherDescription: service.getWeatherDescription(openWeatherapiObject.weather),
@@ -82,8 +85,10 @@ angular.module('openWeatherApiModule', [])
         return url;
     }
 
-    service.kelvinTocelsius = function(kelvin){
-        return kelvin - 273.15;
+    service.getTemperature = function(kelvin){
+        var celsius = kelvin - 273.15;
+        var celsiusRounded = celsius.toFixed(0)
+        return celsiusRounded;
     }
 
     service.getWeatherDescription = function(weatherArray){

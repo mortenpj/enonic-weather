@@ -4,7 +4,7 @@ angular.module('weatherModule', ["openWeatherApiModule"])
 .controller('weatherController', ['$scope', '$rootScope', 'openWeatherApiFactory', function($scope, $rootScope, openWeatherApiFactory) {
 
     $scope.lastweather = {
-        oslo: {lastUpdated: null, weather: null, error: null},
+        oslo: {lastUpdated: null, weather: null},
         london: {lastUpdated: null, weather: null},
         minsk: {lastUpdated: null, weather: null}
     }
@@ -17,8 +17,8 @@ angular.module('weatherModule', ["openWeatherApiModule"])
 
     $rootScope.$on("OSLO_WEATHER_UPDATED", function(){
         $scope.errors.oslo.showmessage = false;
-        $scope.lastweather.oslo.lastUpdated = moment().format("HH:mm:ss")
-        $scope.lastweather.oslo.weather = openWeatherApiFactory.lastWeather.Oslo;
+        $scope.lastweather.oslo.weather = openWeatherApiFactory.lastWeather.Oslo.weather;
+        $scope.lastweather.oslo.lastUpdated = openWeatherApiFactory.lastWeather.Oslo.updated;
     })
 
     $rootScope.$on("OSLO_WEATHER_FAILED", function(){
@@ -27,8 +27,8 @@ angular.module('weatherModule', ["openWeatherApiModule"])
 
     $rootScope.$on("LONDON_WEATHER_UPDATED", function(){
         $scope.errors.london.showmessage = false;
-        $scope.lastweather.london.lastUpdated = moment().format("HH:mm:ss")
-        $scope.lastweather.london.weather = openWeatherApiFactory.lastWeather.London;
+        $scope.lastweather.london.weather = openWeatherApiFactory.lastWeather.London.weather;
+        $scope.lastweather.london.lastUpdated = openWeatherApiFactory.lastWeather.London.updated;
     })
 
     $rootScope.$on("LONDON_WEATHER_FAILED", function(){
@@ -37,8 +37,8 @@ angular.module('weatherModule', ["openWeatherApiModule"])
 
     $rootScope.$on("MINSK_WEATHER_UPDATED", function(){
         $scope.errors.minsk.showmessage = false;
-        $scope.lastweather.minsk.lastUpdated = moment().format("HH:mm:ss")
-        $scope.lastweather.minsk.weather = openWeatherApiFactory.lastWeather.Minsk;
+        $scope.lastweather.minsk.weather = openWeatherApiFactory.lastWeather.Minsk.weather;
+        $scope.lastweather.minsk.lastUpdated = openWeatherApiFactory.lastWeather.Minsk.updated;
     })
 
     $rootScope.$on("MINSK_WEATHER_FAILED", function(){

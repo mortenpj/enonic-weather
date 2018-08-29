@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mainModule', ['openWeatherApiModule'])
+angular.module('mainModule', ['openWeatherApiModule', 'weatherModule'])
 .factory('mainFactory', ['$rootScope', '$timeout', 'openWeatherApiFactory', function($rootScope, $timeout, openWeatherApiFactory){
 
     var service = {
@@ -23,6 +23,8 @@ angular.module('mainModule', ['openWeatherApiModule'])
 
     service.updateWeather = function(){
         openWeatherApiFactory.getOsloWeather();
+        openWeatherApiFactory.getLondonWeather();
+        openWeatherApiFactory.getMinskWeather();
     }
 
     return service;

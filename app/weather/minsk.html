@@ -1,7 +1,40 @@
 <div class="col-xs-12 well">
-    Minsk
-    <div>{{ lastweather.minsk.weather.temperature }}</div>
-    <div>{{ lastweather.minsk.weather.pressure }}</div>
-    <div>{{ lastweather.minsk.weather.weatherDescription }}</div>
-    <div>{{ lastweather.minsk.weather.humidity }}</div>
+
+    <div class="error" ng-show="errors.minsk.showmessage">{{ errors.minsk.message }}</div>
+
+    <div class="col-xs-8 pull-left">
+        <div>
+            <img class="pull-left weathericon" ng-src="{{ lastweather.minsk.weather.weathericonurl }}" />
+        </div>
+        <div class="col-xs-4 temperature">
+            <div class="bold-text">{{ lastweather.minsk.weather.temperature }}&deg;C</div>
+        </div>
+
+    </div>
+
+    <div class="col-xs-4 updated pull-right">
+        <div class="col-xs-12 pull-right bold-text">Last updated</div>
+        <div class="col-xs-12 pull-right">{{ lastweather.minsk.lastUpdated }}</div>
+    </div>
+    <div class="col-xs-12 description bold-text">{{ lastweather.minsk.weather.weatherDescription }}</div>
+
+    <div class="col-xs-12 pressure pt15">
+        <div class="col-xs-4">Pressure</div>
+        <div class="col-xs-8">{{ lastweather.minsk.weather.pressure }} hpa</div>
+    </div>
+    <div class="col-xs-12 humidity">
+        <div class="col-xs-4">Humidity</div>
+        <div class="col-xs-8">{{ lastweather.minsk.weather.humidity }}%</div>
+    </div>
+
+    <div class="col-xs-12 wind-speed">
+        <div class="col-xs-4">Wind speed</div>
+        <div class="col-xs-8">{{ lastweather.minsk.weather.windspeed }} m/s</div>
+    </div>
+    <div class="col-xs-12 wind-direction">
+        <div class="col-xs-4">Wind direction</div>
+        <div class="col-xs-8">{{ lastweather.minsk.weather.winddirection }}&deg;</div>
+    </div>
+
+    <div class="btn btn-primary pull-right" ng-click="refreshMinsk()">Refresh</div>
 </div>

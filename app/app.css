@@ -1,14 +1,23 @@
 body {
-    width:
+    width: 100%;
 }
 
 .header {
-    background-color: darkblue;
     text-align: center;
-    color: white;
     font-size: 65px;
+    color: #6d6e70
 }
+
+.header .well {
+    background-image: none;
+    background-color: aliceblue;
+}
+
 
 .pt10 {
     padding-top: 10px;
+}
+
+.enonic-logo img {
+    max-height: 110px;
 }

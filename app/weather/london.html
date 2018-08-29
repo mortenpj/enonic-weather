@@ -1,4 +1,4 @@
-<div class="col-xs-12 well">
+<div class="col-xs-12">
 
     <div class="error" ng-show="errors.london.showmessage">{{ errors.london.message }}</div>
 
@@ -20,20 +20,20 @@
 
     <div class="col-xs-12 pressure pt15">
         <div class="col-xs-4">Pressure</div>
-        <div class="col-xs-8">{{ lastweather.london.weather.pressure }} hpa</div>
+        <div class="col-xs-8" ng-show="lastweather.london.weather.pressure != null">{{ lastweather.london.weather.pressure }} hpa</div>
     </div>
     <div class="col-xs-12 humidity">
         <div class="col-xs-4">Humidity</div>
-        <div class="col-xs-8">{{ lastweather.london.weather.humidity }}%</div>
+        <div class="col-xs-8" ng-show="lastweather.london.weather.humidity != null">{{ lastweather.london.weather.humidity }}%</div>
     </div>
 
     <div class="col-xs-12 wind-speed">
         <div class="col-xs-4">Wind speed</div>
-        <div class="col-xs-8">{{ lastweather.london.weather.windspeed }} m/s</div>
+        <div class="col-xs-8" ng-show="lastweather.london.weather.windspeed != null">{{ lastweather.london.weather.windspeed }} m/s</div>
     </div>
     <div class="col-xs-12 wind-direction">
         <div class="col-xs-4">Wind direction</div>
-        <div class="col-xs-8">{{ lastweather.london.weather.winddirection }}&deg;</div>
+        <div class="col-xs-8" ng-show="lastweather.london.weather.winddirection != null">{{ lastweather.london.weather.winddirection }}&deg;</div>
     </div>
 
     <div class="btn btn-primary pull-right" ng-click="refreshLondon()">Refresh</div>

@@ -1,4 +1,4 @@
-<div class="col-xs-12 well">
+<div class="col-xs-12">
 
     <div class="error" ng-show="errors.minsk.showmessage">{{ errors.minsk.message }}</div>
 
@@ -20,20 +20,20 @@
 
     <div class="col-xs-12 pressure pt15">
         <div class="col-xs-4">Pressure</div>
-        <div class="col-xs-8">{{ lastweather.minsk.weather.pressure }} hpa</div>
+        <div class="col-xs-8" ng-show="lastweather.minsk.weather.pressure != null">{{ lastweather.minsk.weather.pressure }} hpa</div>
     </div>
     <div class="col-xs-12 humidity">
         <div class="col-xs-4">Humidity</div>
-        <div class="col-xs-8">{{ lastweather.minsk.weather.humidity }}%</div>
+        <div class="col-xs-8" ng-show="lastweather.minsk.weather.humidity != null">{{ lastweather.minsk.weather.humidity }}%</div>
     </div>
 
     <div class="col-xs-12 wind-speed">
         <div class="col-xs-4">Wind speed</div>
-        <div class="col-xs-8">{{ lastweather.minsk.weather.windspeed }} m/s</div>
+        <div class="col-xs-8" ng-show="lastweather.minsk.weather.windspeed != null">{{ lastweather.minsk.weather.windspeed }} m/s</div>
     </div>
     <div class="col-xs-12 wind-direction">
         <div class="col-xs-4">Wind direction</div>
-        <div class="col-xs-8">{{ lastweather.minsk.weather.winddirection }}&deg;</div>
+        <div class="col-xs-8" ng-show="lastweather.minsk.weather.winddirection != null">{{ lastweather.minsk.weather.winddirection }}&deg;</div>
     </div>
 
     <div class="btn btn-primary pull-right" ng-click="refreshMinsk()">Refresh</div>

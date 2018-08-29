@@ -1,5 +1,5 @@
 body {
-    width: 100%;
+    max-width: 1600px;;
 }
 
 .header {
@@ -13,11 +13,44 @@ body {
     background-color: aliceblue;
 }
 
-
 .pt10 {
     padding-top: 10px;
 }
 
+.pt15 {
+    padding-top: 15px;
+}
+
 .enonic-logo img {
     max-height: 110px;
+}
+
+.weathericon {
+    height: 65px;
+}
+
+.temperature {
+    font-size: 45px;
+}
+
+.weather-city {
+    color: darkblue;
+}
+
+.updated {
+    text-align: right;
+    color: cornflowerblue;
+    margin-right: -30px;
+}
+
+.description {
+    font-size: 24px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.pressure, .humidity, .wind-speed, .wind-direction {
+    margin-left: -15px;
 }

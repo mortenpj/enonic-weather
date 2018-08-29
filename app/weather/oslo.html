@@ -1,9 +1,40 @@
 <div class="col-xs-12 well">
 
-    Oslo
-    <div>{{ lastweather.oslo.weather.temperature }}</div>
-    <div>{{ lastweather.oslo.weather.pressure }}</div>
-    <div>{{ lastweather.oslo.weather.weatherDescription }}</div>
-    <div>{{ lastweather.oslo.weather.humidity }}</div>
+    <div class="error" ng-show="errors.oslo.showmessage">Failed to update weather for Oslo</div>
 
+    <div class="col-xs-8 pull-left">
+        <div>
+            <img class="pull-left weathericon" ng-src="{{ lastweather.oslo.weather.weathericonurl }}" />
+        </div>
+        <div class="col-xs-4 temperature">
+            <div class="bold-text">{{ lastweather.oslo.weather.temperature }}&deg;C</div>
+        </div>
+
+    </div>
+
+    <div class="col-xs-4 updated pull-right">
+        <div class="col-xs-12 pull-right bold-text">Last updated</div>
+        <div class="col-xs-12 pull-right">{{ lastweather.oslo.lastUpdated }}</div>
+    </div>
+    <div class="col-xs-12 description bold-text">{{ lastweather.oslo.weather.weatherDescription }}</div>
+
+    <div class="col-xs-12 pressure pt15">
+        <div class="col-xs-3">Pressure</div>
+        <div class="col-xs-9">{{ lastweather.oslo.weather.pressure }} hpa</div>
+    </div>
+    <div class="col-xs-12 humidity">
+        <div class="col-xs-3">Humidity</div>
+        <div class="col-xs-9">{{ lastweather.oslo.weather.humidity }}%</div>
+    </div>
+
+    <div class="col-xs-12 wind-speed">
+        <div class="col-xs-3">Wind speed</div>
+        <div class="col-xs-9">{{ lastweather.oslo.weather.windspeed }} m/s</div>
+    </div>
+    <div class="col-xs-12 wind-direction">
+        <div class="col-xs-3">Wind direction</div>
+        <div class="col-xs-9">{{ lastweather.oslo.weather.winddirection }}&deg;</div>
+    </div>
+
+    <div class="btn btn-primary pull-right" ng-click="refreshOslo()">Refresh</div>
 </div>
